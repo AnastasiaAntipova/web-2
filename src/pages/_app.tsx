@@ -1,13 +1,14 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import {createTheme, CssBaseline, Palette, ThemeProvider} from "@mui/material";
-import {red} from "@mui/material/colors";
+import {createTheme,  ThemeProvider} from "@mui/material";
+import {Provider} from "react-redux";
+import {store} from "@/store/store";
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <ThemeProvider theme={theme}>
+  return <Provider store={store}><ThemeProvider theme={theme}>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </ThemeProvider></Provider>
 }
 
 const theme = createTheme();
